@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="fonts">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script id="connection-type-checker">
+    (() => {
+      const inter = document.createElement('link')
+      const interItalic = document.createElement('link')
+      const firaCode = document.createElement('link')
+
+      inter.as = 'font'
+      inter.type = 'font/woff2'
+      inter.rel = 'preload'
+      inter.crossOrigin = 'anonymous'
+      inter.href = 'inter-var.woff2'
+
+      interItalic.as = 'font'
+      interItalic.type = 'font/woff2'
+      interItalic.rel = 'preload'
+      interItalic.crossOrigin = 'anonymous'
+      inter.href = 'inter-var-italic.woff2'
+
+      firaCode.as = 'font'
+      firaCode.type = 'font/woff2'
+      firaCode.rel = 'preload'
+      firaCode.crossOrigin = 'anonymous'
+      firaCode.href = 'fira-code.woff2'
+
+      const insertAfter = (newNode, referenceNode) => referenceNode
+        .parentNode.insertBefore(newNode, referenceNode.nextSibling)
+
+      const target = document.getElementById('connection-type-checker')
+
+      insertAfter(inter, target)
+      insertAfter(interItalic, target)
+      insertAfter(firaCode, target)
+    })()
+  </script>
+  <link rel="preload" type="image/jpeg" crossorigin="anonymous" href="img.jpeg" as="image" media="all">
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-weight: 100 900;
+      font-display: swap;
+      font-style: normal;
+      src: url('inter-var.woff2') format('woff2-variations'),
+        url('inter-var.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter var';
+      font-weight: 100 900;
+      font-display: swap;
+      font-style: italic;
+      src: url('inter-var-italic.woff2') format('woff2-variations'),
+        url('inter-var-italic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Fira Code VF';
+      font-weight: 300 700;
+      font-display: swap;
+      font-style: normal;
+      src: url('fira-code.woff2') format('woff2-variations'),
+        url('fira-code.woff2') format('woff2');
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+    }
+
+    .fonts body {
+      font-family: 'Inter var';
+      font-feature-settings: 'kern', 'calt', 'ss01', 'ss02', 'ss03';
+    }
+
+    .fonts pre,
+    .fonts code {
+      font-family: 'Fira Code VF';
+      font-feature-settings: 'salt', 'calt', 'case', 'cpsp', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06';
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello world</h1>
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+    dummy <em>text ever since the 1500s</em>, when an unknown printer took a galley of type and scrambled it to make a type specimen
+    book. <b>It has survived not only five centuries</b>, but also the leap into electronic typesetting, remaining essentially
+    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </p>
+
+  <img src="img.jpeg"/>
+
+  <pre>
+    <code>
+      Promise.all([
+        document.fonts.load('400 1em "Inter var"'),
+        document.fonts.load('italic 400 1em "Inter var"'),
+        document.fonts.load('400 1em "Fira Code VF"')
+      ]).then(() => {
+        document.documentElement.classList.add('fonts')
+
+        // Optimization for repeat views
+        sessionStorage.areFontsLoaded = true
+
+        // Dispatch event to notify ThemeUIProvider component
+        const fontsLoadedEvent = new CustomEvent('FONTS_ARE_LOADED')
+        window.dispatchEvent(fontsLoadedEvent)
+      })
+    </code>
+  </pre>
+</body>
+</html>
