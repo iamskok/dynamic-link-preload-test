@@ -4,4 +4,4 @@ This repo is the showcase of incosistent loading order behavior in Chrome browse
 
 > [StackOverflow Question](https://stackoverflow.com/questions/61419382/inconsistent-load-order-behavior-for-the-resources-loaded-with-link-rel-preloa) explaining the issue.
 
-![https://api.monosnap.com/file/download?id=nNGWieEaPBo7IbyKpeudS1qZSFhd5T]
+![Safari, Chrome, Firefox](https://api.monosnap.com/file/download?id=nNGWieEaPBo7IbyKpeudS1qZSFhd5T)
