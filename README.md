@@ -7,3 +7,4 @@ This repo is the showcase of incosistent loading order behavior in Chrome browse
 ![Safari, Chrome, Firefox](https://api.monosnap.com/file/download?id=nNGWieEaPBo7IbyKpeudS1qZSFhd5T)
 
 [Chromium bug report](https://bugs.chromium.org/p/chromium/issues/detail?id=1074587)
+
